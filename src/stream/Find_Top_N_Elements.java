@@ -9,5 +9,7 @@ public class Find_Top_N_Elements {
         List<Integer> list = List.of(5, 1, 9, 3, 7);
         list.stream().sorted(Comparator.reverseOrder()).limit(3).collect(Collectors.toList()).forEach(System.out::println);
 
+        list.stream().limit(3).forEach(System.out::println);
+
     }
 }

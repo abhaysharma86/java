@@ -2,7 +2,6 @@ package stream;
 
 import java.util.*;
 import java.util.function.Function;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Sum {
@@ -11,6 +10,7 @@ public class Sum {
 
         int sum = list.stream().mapToInt(n -> n).sum();
         System.out.println(sum);
+
 
         Map<Integer, Long> collect = list.stream()
                 .filter(n -> n / 2 != 0)

@@ -1,9 +1,8 @@
 package stream;
 
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.OptionalInt;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -18,6 +17,20 @@ public class FirstNon_RepeatingCharacter {
                 .findFirst().get();
 
         System.out.println(character);
+
+        char[] charArray = str.toCharArray();
+        List<Character> list = new String(charArray).chars().mapToObj(c -> (char) c).toList();
+        Set<Character> collect = list.stream().filter(n -> Collections.frequency(list, n) == 1).collect(Collectors.toSet());
+        System.out.println(collect);
+
+        List<Character> list1 = str.chars()
+                .mapToObj(n -> (char) n)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream().filter(n -> n.getValue() == 1)
+                .map(n -> n.getKey()).toList();
+        System.out.println(list1);
+
 
     }
 }
